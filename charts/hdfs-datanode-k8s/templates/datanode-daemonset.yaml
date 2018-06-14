@@ -1,10 +1,11 @@
-# Deleting a daemonset may need some trick. See
-# https://github.com/kubernetes/kubernetes/issues/33245#issuecomment-261250489
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: hdfs-datanode
 spec:
+  selector:
+    matchLabels:
+      name: hdfs-datanode
   template:
     metadata:
       labels:
@@ -59,10 +60,8 @@ spec:
             - name: hdfs-config
               mountPath: /etc/hadoop-custom-conf
               readOnly: true
-            {{- range $index, $path := .Values.dataNodeHostPath }}
-            - name: hdfs-data-{{ $index }}
-              mountPath: /hadoop/dfs/data/{{ $index }}
-            {{- end }}
+            - name: hdfs-data
+              mountPath: /hadoop
             {{- if .Values.kerberosEnabled }}
             - name: kerberos-config
               mountPath: /etc/krb5.conf
@@ -107,11 +106,9 @@ spec:
       {{- end }}
       restartPolicy: Always
       volumes:
-        {{- range $index, $path := .Values.dataNodeHostPath }}
-        - name: hdfs-data-{{ $index }}
+        - name: hdfs-data
           hostPath:
-            path: {{ $path }}
-        {{- end }}
+            path: {{ .Values.dataNodeHostPath }}
         - name: hdfs-config
           configMap:
             name: {{ .Values.hdfsConfigMap }}

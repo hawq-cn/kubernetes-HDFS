@@ -10,3 +10,7 @@ See [charts/README.md](charts/README.md) for how to run the charts.
 
 See [tests/README.md](tests/README.md) for how to run integration tests for
 HDFS on Kubernetes.
+
+## Usage on Google Kubernetes Engine
+See [guide](InstallOnGKE.md).
+

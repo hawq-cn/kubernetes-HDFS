@@ -19,7 +19,7 @@ dataNodeHostPath:
   - /hdfs-data
 
 # Whether or not to expect namenodes in the HA setup.
-namenodeHAEnabled: true
+namenodeHAEnabled: false
 
 # Zookeeper quorum to use for determining which namenode instance is active.
 # Separated by the comma character.
@@ -35,7 +35,7 @@ kerberosEnabled: false
 # Effective only if Kerberos is enabled. Enable protection of datanodes using
 # the jsvc utility. See the reference doc at
 # https://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/SecureMode.html#Secure_DataNode
-jsvcEnabled: true
+jsvcEnabled: false
 
 # Required to be non-empty if Kerberos is enabled. Specify your Kerberos realm name.
 # This should match the realm name in your Kerberos config file.

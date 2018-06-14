@@ -57,7 +57,8 @@ spec:
             name: fs
           volumeMounts:
             - name: hdfs-name
-              mountPath: /hadoop/dfs/name
+#              mountPath: /hadoop/dfs/name
+              mountPath: /hadoop
             - name: hdfs-config
               mountPath: /etc/hadoop-custom-conf
               readOnly: true

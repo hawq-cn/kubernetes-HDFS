@@ -19,8 +19,7 @@
 # blocks. These paths will be mounted to the datanode as K8s HostPath volumes.
 # In a command line, the list should be enclosed in '{' and '}'.
 # e.g. --set "dataNodeHostPath={/hdfs-data,/hdfs-data1}"
-dataNodeHostPath:
-  - /hdfs-data
+dataNodeHostPath: /mnt/disks/ssd0
 
 # Name of the k8s config map containing Hadoop config files such as core-site.xml
 # and hdfs-site.xml.
@@ -48,10 +47,10 @@ kerberosKeytabsSecret: hdfs-kerberos-keytabs
 # Effective only if Kerberos is enabled. Enable protection of datanodes using
 # the jsvc utility. See the reference doc at
 # https://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/SecureMode.html#Secure_DataNode
-jsvcEnabled: true
+jsvcEnabled: false
 
 # Whether or not to expect namenodes in the HA setup.
-namenodeHAEnabled: true
+namenodeHAEnabled: false
 
 # Node labels and tolerations for pod assignment
 nodeSelector: {}
