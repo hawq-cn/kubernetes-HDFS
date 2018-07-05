@@ -107,8 +107,10 @@ spec:
       restartPolicy: Always
       volumes:
         - name: hdfs-data
-          hostPath:
-            path: {{ .Values.dataNodeHostPath }}
+          persistentVolumeClaim:
+            claimName: hdfs-pvc
+          #hostPath:
+          #  path: {{ .Values.dataNodeHostPath }}
         - name: hdfs-config
           configMap:
             name: {{ .Values.hdfsConfigMap }}

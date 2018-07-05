@@ -41,3 +41,7 @@ jsvcEnabled: false
 # This should match the realm name in your Kerberos config file.
 kerberosRealm: MYCOMPANY.COM
 
+hdfspvc: {
+  storageClassName: standard,
+  size: 100Gi
+}

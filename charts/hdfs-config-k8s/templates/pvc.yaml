@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hdfs-pvc
+spec:
+  storageClassName: {{ .Values.hdfspvc.storageClassName }}
+  resources:
+    requests:
+      storage: {{ .Values.hdfspvc.size }}
+  accessModes:
+  - "ReadWriteOnce"

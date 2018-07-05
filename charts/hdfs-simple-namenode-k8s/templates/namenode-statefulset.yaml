@@ -64,9 +64,17 @@ spec:
               readOnly: true
       restartPolicy: Always
       volumes:
-        - name: hdfs-name
-          hostPath:
-            path: {{ .Values.nameNodeHostPath }}
         - name: hdfs-config
           configMap:
             name: {{ .Values.hdfsConfigMap }}
+       # - name: hdfs-name
+       #   hostPath:
+       #     path: {{ .Values.nameNodeHostPath }}
+  volumeClaimTemplates:
+  - metadata:
+      name: hdfs-name
+    spec:
+      accessModes: [ "ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 2Gi
