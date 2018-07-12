@@ -19,7 +19,8 @@
 # blocks. These paths will be mounted to the datanode as K8s HostPath volumes.
 # In a command line, the list should be enclosed in '{' and '}'.
 # e.g. --set "dataNodeHostPath={/hdfs-data,/hdfs-data1}"
-dataNodeHostPath: /mnt/disks/ssd0
+#dataNodeHostPath: /mnt/disks/ssd0
+dataNodeHostPath: /var/vcap/store/hdfsdata
 
 # Name of the k8s config map containing Hadoop config files such as core-site.xml
 # and hdfs-site.xml.
