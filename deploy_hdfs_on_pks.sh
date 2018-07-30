@@ -18,6 +18,8 @@ kubectl label nodes $name_node hdfs-datanode-exclude=yes
 cd charts
 helm install hdfs-config-k8s --name my-hdfs-config --set fullnameOverride=hdfs-config
 # install nn
+echo "Deploying HDFS namenode."
 helm install -n my-hdfs-namenode hdfs-simple-namenode-k8s
 # install dn
+echo "Deploying HDFS datanodes."
 helm install -n my-hdfs-datanode hdfs-datanode-k8s
