@@ -23,3 +23,9 @@ helm install -n my-hdfs-namenode hdfs-simple-namenode-k8s
 # install dn
 echo "Deploying HDFS datanodes."
 helm install -n my-hdfs-datanode hdfs-datanode-k8s
+
+sleep 20
+echo "HDFS deploy finished, please wait couple seconds for service startup..."
+echo "You can check hdfs status by:"
+echo "> kubectl exec -it hdfs-namenode-0 'hadoop dfsadmin -report'"
+echo "> kubectl exec -it hdfs-namenode-0 'hdfs dfs -fs hdfs-namenode-0.hdfs-namenode:8020 -ls /'"

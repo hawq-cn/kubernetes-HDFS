@@ -42,7 +42,7 @@ glcoud is the SDK tools which running in terminal
 ## Install Helm
 1. setup account
     ```bash
-    kubectl -f installHelm/helm-account.yaml
+    kubectl create -f installHelm/helm-account.yaml
     ```
 2. install helm
     ```bash
