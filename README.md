@@ -12,5 +12,5 @@ See [tests/README.md](tests/README.md) for how to run integration tests for
 HDFS on Kubernetes.
 
 ## Usage on Google Kubernetes Engine
-See [guide](InstallOnGKE.md).
+See [Deploy guide](InstallOnGKE.md).
 
