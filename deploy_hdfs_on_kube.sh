@@ -5,11 +5,16 @@ kubectl create -f installHelm/helm-account.yaml
 helm init --service-account helm
 
 # Get Kubernetes node list
-k8s_node_list=`kubectl get nodes |grep '^vm-' |cut -d ' ' -f1`
-echo "Kubernetes node list is: $k8s_node_list"
+k8s_node_list=`kubectl get nodes |grep '^gke-' |cut -d ' ' -f1`
+echo "---------------------------------------------------------"
+echo "Kubernetes node list is:"
+echo "---------------------------------------------------------"
 echo "$k8s_node_list"
+echo "---------------------------------------------------------"
 name_node=`echo $k8s_node_list | cut -d ' ' -f1`
+echo "---------------------------------------------------------"
 echo "Selected $name_node as HDFS name node."
+echo "---------------------------------------------------------"
 
 kubectl label nodes $name_node hdfs-namenode-selector=hdfs-namenode-0
 kubectl label nodes $name_node hdfs-datanode-exclude=yes
